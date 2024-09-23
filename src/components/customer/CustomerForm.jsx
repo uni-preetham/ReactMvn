@@ -26,10 +26,6 @@ class CustomerForm extends React.Component {
     this.setState({ email: event.target.value });
   }
 
-//   handleSubmit(event){
-    
-//   }
-
   render() {
     return (
       <>
@@ -39,7 +35,7 @@ class CustomerForm extends React.Component {
           onSubmit={(e) => {
             e.preventDefault();
             const newCustomer = this.state;  // Create a new customer object from the form data
-            this.props.addCustomer(newCustomer);  // Call the addCustomer function passed as prop
+            this.props.addCustomer(newCustomer);  // Call the addCustomer function passed as prop to submit via Axios
             this.setState({  // Reset form fields after submission
               firstName: "",
               lastName: "",
@@ -50,55 +46,38 @@ class CustomerForm extends React.Component {
           <div className="form-group form-floating mb-2">
             <input
               type="text"
-              name=""
-              id=""
               className="form-control"
-              placeholder=""
-              aria-describedby="helpId"
               value={this.state.firstName}
               onChange={this.handleFirstNameChange}
             />
-            <label htmlFor="" className="form-label">
-              First name
-            </label>
+            <label>First name</label>
           </div>
 
           <div className="form-group form-floating mb-2">
             <input
               type="text"
-              name=""
-              id=""
               className="form-control"
-              placeholder=""
-              aria-describedby="helpId"
               value={this.state.lastName}
               onChange={this.handleLastNameChange}
             />
-            <label htmlFor="" className="form-label">
-              Last name
-            </label>
+            <label>Last name</label>
           </div>
 
           <div className="form-group form-floating mb-2">
             <input
               type="email"
-              name=""
-              id=""
               className="form-control"
-              placeholder=""
-              aria-describedby="helpId"
               value={this.state.email}
               onChange={this.handleEmailChange}
             />
-            <label htmlFor="" className="form-label">
-              Email
-            </label>
+            <label>Email</label>
           </div>
 
-          <button>Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </>
     );
   }
 }
+
 export default CustomerForm;
